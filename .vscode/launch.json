@@ -1,0 +1,24 @@
+{
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"sourceLanguages": ["swift"],
+			"args": [],
+			"cwd": "${workspaceFolder:pulumi-lambda-demo}",
+			"name": "Debug Demo",
+			"program": "${workspaceFolder:pulumi-lambda-demo}/.build/debug/Demo",
+			"preLaunchTask": "swift: Build Debug Demo"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"sourceLanguages": ["swift"],
+			"args": [],
+			"cwd": "${workspaceFolder:pulumi-lambda-demo}",
+			"name": "Release Demo",
+			"program": "${workspaceFolder:pulumi-lambda-demo}/.build/release/Demo",
+			"preLaunchTask": "swift: Build Release Demo"
+		}
+	]
+}
