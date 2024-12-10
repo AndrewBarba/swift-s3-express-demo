@@ -11,7 +11,13 @@ let runtime = LambdaRuntime { (event: APIGatewayV2Request, context: LambdaContex
 
     return APIGatewayV2Response(
         statusCode: .ok,
-        body: "S3 Session: \(session?.credentials?.sessionToken ?? "(nil)")"
+        body:
+            """
+            S3 Access Key: \(session?.credentials?.accessKeyId?.prefix(8) ?? "(nil)")
+            S3 Secret Key: \(session?.credentials?.secretAccessKey?.prefix(8) ?? "(nil)")
+            S3 Session: \(session?.credentials?.sessionToken?.prefix(8) ?? "(nil)")
+            S3 Exp: \(session?.credentials?.expiration?.timeIntervalSince1970 ?? -1)
+            """
     )
 }
 
