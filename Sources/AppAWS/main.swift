@@ -4,9 +4,7 @@ import AWSLambdaRuntime
 
 let bucket = Lambda.env("BUCKET_FILES_NAME")!
 
-let s3 = try AWSS3.S3Client(
-    config: .init(region: "us-east-1")
-)
+let s3 = try await AWSS3.S3Client()
 
 let runtime = LambdaRuntime { (event: APIGatewayV2Request, context: LambdaContext) -> APIGatewayV2Response in
     let session = try? await s3.createSession(input: .init(bucket: bucket))
