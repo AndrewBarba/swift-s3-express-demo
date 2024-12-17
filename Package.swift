@@ -11,7 +11,7 @@ let package = Package(
         .package(url: "https://github.com/swift-server/swift-aws-lambda-runtime", branch: "main"),
         .package(url: "https://github.com/swift-server/swift-aws-lambda-events", branch: "main"),
         .package(url: "https://github.com/awslabs/aws-sdk-swift", branch: "main"),
-        .package(url: "https://github.com/soto-project/soto", branch: "main"),
+        .package(url: "https://github.com/soto-project/soto", branch: "s3-express"),
     ],
     targets: [
         .executableTarget(

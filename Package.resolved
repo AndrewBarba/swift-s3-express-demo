@@ -1,5 +1,5 @@
 {
-  "originHash" : "0bcce3d35972f225c174e7113511f48f46278bbe331cc9bc04cdf50b4b2f12ec",
+  "originHash" : "e1eedd56015a364573bf43f4a6b0a5a2d27a59f8c713b73a7494b9947804e61a",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -25,7 +25,7 @@
       "location" : "https://github.com/awslabs/aws-sdk-swift",
       "state" : {
         "branch" : "main",
-        "revision" : "e4f1864d6c8b6fc46c5b655cf55219372fc12494"
+        "revision" : "67fe900ec514df31518bb880f858db082a9d8816"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tuist/Command",
       "state" : {
-        "revision" : "604c3c184799ca965eed19cfe2ca91e9e57ae598",
-        "version" : "0.9.32"
+        "revision" : "77f83574487fa140eee8c63376aef4027edfb5e7",
+        "version" : "0.10.3"
       }
     },
     {
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/smithy-lang/smithy-swift",
       "state" : {
-        "revision" : "fe0f2dad507c43809d5ee30c1e6a74368960aeca",
-        "version" : "0.100.0"
+        "revision" : "aa57fd7ce7ec13991eafb1a5817ebee9919bef01",
+        "version" : "0.102.0"
       }
     },
     {
@@ -87,17 +87,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/soto-project/soto",
       "state" : {
-        "branch" : "main",
-        "revision" : "b3cf93e421683b7db18195d7f5a4a3d9a13a6700"
+        "branch" : "s3-express",
+        "revision" : "95cb9cd534f87a79134ababf0e7c20853ec9b3fd"
       }
     },
     {
       "identity" : "soto-core",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/soto-project/soto-core",
+      "location" : "https://github.com/soto-project/soto-core.git",
       "state" : {
-        "revision" : "9d44bcdd0f998d211ca882101a0747f3d743f93e",
-        "version" : "7.2.0"
+        "branch" : "s3-express-endpoints",
+        "revision" : "34003d36874bc96907a5d3d313bd7f4ae86665af"
       }
     },
     {
@@ -160,7 +160,7 @@
       "location" : "https://github.com/swift-cloud/swift-cloud",
       "state" : {
         "branch" : "main",
-        "revision" : "08f34a9b797a8b8e3ca7699749e0e244e7798c59"
+        "revision" : "2a2a28dc4c5e6f03aaa9f9887774ac7b122e6d82"
       }
     },
     {

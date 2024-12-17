@@ -6,21 +6,39 @@ let bucket = Lambda.env("BUCKET_FILES_NAME")!
 
 let aws = AWSClient()
 let s3 = S3(client: aws)
+let (s3ExpressClient, s3Express) = s3.createS3ExpressClientAndService(bucket: bucket)
 
 let runtime = LambdaRuntime { (event: APIGatewayV2Request, context: LambdaContext) -> APIGatewayV2Response in
-    let session = try? await s3.createSession(bucket: bucket)
+    do {
+        _ = try await s3Express.putObject(
+            body: .init(string: "Hello World!"),
+            bucket: bucket,
+            key: "test.\(Int.random(in: 0...10)).txt"
+        )
 
-    return APIGatewayV2Response(
-        statusCode: .ok,
-        body:
-            """
-            S3 Access Key: \(session?.credentials.accessKeyId.prefix(8) ?? "(nil)")
-            S3 Secret Key: \(session?.credentials.secretAccessKey.prefix(8) ?? "(nil)")
-            S3 Session: \(session?.credentials.sessionToken.prefix(8) ?? "(nil)")
-            S3 Exp: \(session?.credentials.expiration.timeIntervalSince1970 ?? -1)
-            """
-    )
+        let doc = try await s3Express.getObject(
+            bucket: bucket,
+            key: "test.\(Int.random(in: 0...10)).txt"
+        )
+
+        let objects = try? await s3Express.listObjectsV2(bucket: bucket)
+
+        return APIGatewayV2Response(
+            statusCode: .ok,
+            body:
+                """
+                ETag: \(doc.eTag ?? "No etag")
+                Keys: \(objects?.keyCount ?? -1)
+                """
+        )
+    } catch {
+        return APIGatewayV2Response(
+            statusCode: .internalServerError,
+            body: error.localizedDescription
+        )
+    }
 }
 
 try await runtime.run()
+try await s3ExpressClient.shutdown()
 try await aws.shutdown()
